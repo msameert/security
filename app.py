@@ -66,6 +66,11 @@ def register() :
           session['username'] = username
           return redirect(url_for("dashboard"))
       
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")
+      
 @app.route("/dashboard")
 def dashboard():
     if "username" in session:
